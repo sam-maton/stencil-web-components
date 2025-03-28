@@ -7,8 +7,69 @@
 
     <script type="module" src="/build/web-components-stencil.esm.js"></script>
     <script nomodule src="/build/web-components-stencil.js"></script>
+    <style>
+      body {
+        font-family: sans-serif;
+        justify-items: center;
+      }
+
+      nav ul {
+        list-style: none;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: darkslategray;
+      }
+
+      nav li {
+        margin: 1rem 0;
+      }
+
+      .main-section {
+        margin-top: 10rem;
+      }
+    </style>
   </head>
   <body>
-    <my-component first="Stencil" middle="'Don't call me a framework'" last="JS"></my-component>
+    <dev-side-drawer main-title="Main Menu">
+      <nav>
+        <ul>
+          <li><a href="#">First Link</a></li>
+          <li><a href="#">Second Link</a></li>
+          <li><a href="#">Third Link</a></li>
+          <li><a href="#">Fourth Link</a></li>
+          <li><a href="#">Fifth Link</a></li>
+        </ul>
+      </nav>
+    </dev-side-drawer>
+
+    <section class="main-section">
+      <button id="toggle-button">Open Drawer</button>
+    </section>
+
+    <script>
+      const sideDrawer = document.querySelector('dev-side-drawer');
+      const toggleButton = document.querySelector('#toggle-button');
+
+      toggleButton.addEventListener('click', () => {
+        if (!sideDrawer.open) {
+          // sideDrawer.open = true;
+          sideDrawer.openDrawer();
+        }
+        // if (sideDrawer.hasAttribute('open')) {
+        //   sideDrawer.removeAttribute('open');
+
+        //   return;
+        // }
+
+        // sideDrawer.setAttribute('open', '');
+      });
+
+      //   setTimeout(() => {
+      //     sideDrawer.setAttribute('open', '');
+      //   }, 3000);
+      //
+    </script>
   </body>
 </html>

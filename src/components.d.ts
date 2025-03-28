@@ -6,56 +6,37 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface DevSideDrawer {
+        "mainTitle": string;
+        "open": boolean;
+        "openDrawer": () => Promise<void>;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLDevSideDrawerElement extends Components.DevSideDrawer, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLDevSideDrawerElement: {
+        prototype: HTMLDevSideDrawerElement;
+        new (): HTMLDevSideDrawerElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "dev-side-drawer": HTMLDevSideDrawerElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface DevSideDrawer {
+        "mainTitle"?: string;
+        "open"?: boolean;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "dev-side-drawer": DevSideDrawer;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "dev-side-drawer": LocalJSX.DevSideDrawer & JSXBase.HTMLAttributes<HTMLDevSideDrawerElement>;
         }
     }
 }
