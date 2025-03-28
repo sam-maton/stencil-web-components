@@ -1,0 +1,24 @@
+:host {
+  display: block;
+  position: relative;
+}
+
+span {
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  padding: 0.2rem 0.4rem;
+  position: relative;
+}
+
+#tooltip-container {
+  position: absolute;
+  top: 1.7rem;
+  left: -5rem;
+  z-index: 10;
+  background-color: black;
+  width: 10rem;
+  padding: 1rem;
+  border-radius: 3px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
