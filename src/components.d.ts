@@ -12,6 +12,7 @@ export namespace Components {
         "openDrawer": () => Promise<void>;
     }
     interface ToolTip {
+        "text": string;
     }
 }
 declare global {
@@ -38,6 +39,7 @@ declare namespace LocalJSX {
         "open"?: boolean;
     }
     interface ToolTip {
+        "text"?: string;
     }
     interface IntrinsicElements {
         "dev-side-drawer": DevSideDrawer;
