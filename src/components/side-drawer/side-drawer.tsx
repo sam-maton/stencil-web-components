@@ -1,4 +1,4 @@
-import { Component, Prop, State, Method, h } from '@stencil/core';
+import { Component, Prop, State, Method, Host, h } from '@stencil/core';
 
 @Component({
   tag: 'dev-side-drawer',
@@ -39,23 +39,26 @@ export class SideDrawer {
       );
     }
     return (
-      <aside>
-        <header>
-          <h1>{this.mainTitle}</h1>
-          <button class="close-button" onClick={this.onCloseDrawer}>
-            X
-          </button>
-        </header>
-        <section id="tabs">
-          <button class={!this.showContact ? 'active' : ''} onClick={this.onTabChange.bind(this, 'nav')}>
-            Navigation
-          </button>
-          <button class={this.showContact ? 'active' : ''} onClick={this.onTabChange.bind(this, 'contact')}>
-            Contact
-          </button>
-        </section>
-        <main>{mainContent}</main>
-      </aside>
+      <Host>
+        <div id="backdrop" onClick={this.onCloseDrawer}></div>
+        <aside>
+          <header>
+            <h1>{this.mainTitle}</h1>
+            <button class="close-button" onClick={this.onCloseDrawer}>
+              X
+            </button>
+          </header>
+          <section id="tabs">
+            <button class={!this.showContact ? 'active' : ''} onClick={this.onTabChange.bind(this, 'nav')}>
+              Navigation
+            </button>
+            <button class={this.showContact ? 'active' : ''} onClick={this.onTabChange.bind(this, 'contact')}>
+              Contact
+            </button>
+          </section>
+          <main>{mainContent}</main>
+        </aside>
+      </Host>
     );
   }
 }
