@@ -7,6 +7,7 @@ import { Component, Host, h, State } from '@stencil/core';
 })
 export class StockPrice {
   @State() price = 0;
+  @State() symbol = '';
   onFetchStockPrice = (event: Event) => {
     event.preventDefault();
 
