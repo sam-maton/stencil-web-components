@@ -11,6 +11,8 @@ export class StockPrice {
   onFetchStockPrice = (event: Event) => {
     event.preventDefault();
 
+    console.log(event);
+
     fetch('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=demo')
       .then(response => {
         return response.json();
